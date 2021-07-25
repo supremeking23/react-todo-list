@@ -18,6 +18,7 @@ class AddList extends React.Component {
 
 		let newList = {
 			task: this.state.task,
+			status: "pending",
 		};
 
 		this.props.addList(newList);
