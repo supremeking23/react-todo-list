@@ -12,7 +12,7 @@ class TaskList extends React.Component {
 			},
 			{
 				id: 2,
-				task: "twp",
+				task: "two",
 				status: "Pending",
 			},
 			{
@@ -22,7 +22,7 @@ class TaskList extends React.Component {
 			},
 			{
 				id: 4,
-				task: "111111111",
+				task: "four",
 				status: "Pending",
 			},
 			{
@@ -42,6 +42,26 @@ class TaskList extends React.Component {
 
 		this.setState({
 			lists: listCopy,
+		});
+	};
+
+	markAsDone = (task) => {
+		// alert(task.id);
+		let done_task = this.state.lists.findIndex((list) => list.id === task.id);
+
+		let listCopy = [...this.state.lists];
+
+		listCopy[done_task].status = "Done";
+		this.setState({
+			lists: listCopy,
+		});
+	};
+
+	removeTask = (task) => {
+		let newList = this.state.lists.filter((list) => list.id !== task.id);
+
+		this.setState({
+			lists: newList,
 		});
 	};
 
@@ -90,7 +110,7 @@ class TaskList extends React.Component {
 
 				<div className="row mt-3">
 					{all_task.map((list) => (
-						<ListItem key={list.id} list={list} />
+						<ListItem key={list.id} list={list} markAsDone={this.markAsDone} removeTask={this.removeTask} />
 					))}
 				</div>
 			</div>

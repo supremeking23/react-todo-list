@@ -13,10 +13,18 @@ h2 {
 
 .item {
 	padding: 0.5rem 1rem;
-	background: #e5d884;
+
 	margin: 0.5rem;
 	color: #000;
 	height: 200px;
+}
+
+.pending-task {
+	background: #e5d884;
+}
+
+.done-task {
+	background: #a0fc69;
 }
 
 .btn-add {
